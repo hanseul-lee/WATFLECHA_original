@@ -8,6 +8,7 @@ const $openBtn = document.querySelector(".open-btn");
 const $closeBtn = document.querySelector(".close-btn");
 const $likeBtn = document.querySelector(".like-btn");
 const $topBtn = document.querySelector(".top-btn");
+const $moreBtn = document.querySelector(".more-btn");
 const $popupVideo = document.querySelector(".popup__video");
 const $result__movies = document.querySelector(".result__movies");
 const $popup__movieName = document.querySelector(".popup__movieName");
