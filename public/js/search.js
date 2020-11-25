@@ -18,7 +18,6 @@ if (!user.curlog) {
 $main__name.innerHTML = user.name;
 
 //event handler
-
 // 더보기 버튼 클릭시 다음 페이지 렌더링
 $moreBtn.onclick = () => {
   ++i
@@ -42,6 +41,9 @@ const render = async () => {
       );
     const { results } = await resMovie.json();
     console.log(results);
+    if (results.length !== 20) {
+      $moreBtn.style.display = 'none';
+    }
     results.forEach((movie) => {
       const $li = document.createElement("li");
       $li.id = movie.id;
@@ -59,7 +61,7 @@ const render = async () => {
 -     $li.appendChild($a);
       $fragment.appendChild($li);
       $result__movies.appendChild($fragment);
-    });
+    })
   } catch (err) {
     console.log("[ERROR]", err);
   }
@@ -89,8 +91,7 @@ $topBtn.onclick = () => {
 }
 
 // 스크롤 최상단 시 top 버튼 안보이기
-
-window.onscroll = e => {
+window.onscroll = () => {
   const yOffset = window.pageYOffset;
   if (yOffset === 0) {
     $topBtn.style.display = 'none';
