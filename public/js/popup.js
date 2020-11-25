@@ -23,8 +23,9 @@ const $search = document.querySelector(".search-btn-top");
 const $header__logo = document.querySelector(".header__logo");
 const $heartPopup = document.querySelector(".heartPopup");
 
-let selectedId;
 const localUser = JSON.parse(localStorage.getItem("login"));
+let selectedId;
+let getBookmarks;
 
 const popup = (movie, actors) => {
   if (selectedId) $popup__movieName.innerHTML = movie.title;
