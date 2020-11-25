@@ -51,7 +51,6 @@ body {
 .header__nav li:first-child i {
   color: crimson;
   font-size: 20px;
-
 }
 
 a.logout-btn {
@@ -91,74 +90,48 @@ a.logout-btn:hover {
   background: crimson;
 }
 
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  margin-top: -164px;
-  z-index: -1;
-  opacity: 0.6;
-}
-
-.video-container iframe,
-.video-container object,
-.video-container embed {
-  position: absolute;
-  top: -100px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
-  height: 100%;
-}
-
-.main section {
-  margin-bottom: 20px;
-}
-
 /* main */
 .main {
-  margin-top: -150px;
-  padding: 0 100px;
+  padding: 0 100px 100px;
 }
 
-.main section {
-  position: relative;
+.main>h1 {
+  color: #fff;
+  margin: 80px auto 50px;
 }
 
-.main section div {
-  padding: 20px 0;
-  overflow: hidden;
+.result {
+  margin: 50px auto;
 }
 
-.main section ul {
-  transform: translateX(0);
+.result__movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  /* space-evenly / flex-start */
+  align-items: center;
+  align-content: center;
 }
 
-.main section ul li {
-  float: left;
-  position: relative;
-  list-style-type: none;
+.result__movies>li {
   text-align: center;
+  width: 18%;
+  margin-right: 25px;
   font-size: 15px;
   line-height: 50px;
-  transition: all 0.3s ease-in-out;
 }
 
-.main section ul li:hover {
-  transform: scale(1.2);
-  z-index: 1;
+.result__movies>li:last-child {
+  margin-right: 0;
+}
+
+.result__movies>li:hover {
+  transform: scale(1.15);
+  transition: all 0.3s ease-in-out;
   background-color: #000;
 }
 
-.main section ul li span {
-  position: absolute;
-  font-size: 82px;
-  left: 30px;
-  bottom: 50px;
-  opacity: 0.9;
-  text-shadow: #000 2px 2px 3px;
-}
-
-.main section ul li a {
+.result__movies>li>a {
   display: block;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -167,31 +140,10 @@ a.logout-btn:hover {
   text-decoration: none;
 }
 
-.main section ul li img {
+.result__movies>li img {
   display: block;
   width: 100%;
   max-height: 350px;
-}
-
-.main section ul li:hover {
-  cursor: pointer;
-}
-
-.main section button {
-  position: absolute;
-  top: 24%;
-  color: #fff;
-  font-size: 40px;
-  outline: none;
-  padding: 50px 5px 90px;
-}
-
-.main section .prev {
-  left: -30px;
-}
-
-.main section .next {
-  right: -30px;
 }
 
 /* popup-UI */
@@ -237,6 +189,16 @@ a.logout-btn:hover {
   background-color: rgb(27, 27, 27);
   height: 350px;
   overflow: hidden;
+  position: relative;
+}
+
+.popup__video>img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  overflow: hidden;
 }
 
 .popup::after {
@@ -250,7 +212,6 @@ a.logout-btn:hover {
 }
 
 h3.popup__movieName {
-  /* display: inline-block; */
   font-size: 2rem;
   line-height: 6rem;
 }
@@ -347,33 +308,33 @@ h3.popup__open__overviewTag {
 }
 
 .top-btn {
-  margin: 50px auto;
+  /* margin: 80px auto;
   position: relative;
   left: 50%;
   transform: translate(-50%, 0);
   background-color: transparent;
   width: 200px;
-  height: 70px;
+  height: 70px; */
   color: #fff;
-  border: 2px solid #fff;
+  cursor: pointer;
+  font-size: 35px;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  animation: glow 4s infinite;
+  /* border: 2px solid #fff;
   border-radius: 10px;
   font-weight: bold;
   font-size: 2rem;
-  /* padding: 15px 20px; */
   text-decoration: none;
-  outline: none;
+  outline: none; */
 }
 
+/* 
 .top-btn:hover {
   background-color: crimson;
   border: 2px solid crimson;
-}
-
-.popup>li img {
-  display: block;
-  width: 100%;
-  max-height: 350px;
-}
+} */
 
 .heartPopup.showing {
   animation: showheart 1s;
@@ -386,5 +347,16 @@ h3.popup__open__overviewTag {
 
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes glow {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+    transform: translateY(10px);
   }
 }

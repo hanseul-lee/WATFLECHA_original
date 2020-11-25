@@ -3,6 +3,7 @@ const $searchForm = document.querySelector(".search-form");
 const $searchFormTop = document.querySelector(".search-form-top");
 const $result = document.querySelector(".result");
 const $logoutBtn = document.querySelector(".logout-btn");
+let i = 1;
 
 // local storage
 let user = JSON.parse(localStorage.getItem("login"));
@@ -19,11 +20,14 @@ $main__name.innerHTML = user.name;
 
 // 스크롤 이벤트
 $topBtn.onclick = () => {
-  window.scroll({
-    top: 0,
-    left: 0,
-    behavior: "smooth",
-  });
+  // window.scroll({
+  //   top: 0,
+  //   left: 0,
+  //   behavior: "smooth",
+  // });
+  ++i
+  console.log(i);
+  render();
 };
 
 // 검색창 입력 시 영화 API로 검색 정보 가져오기
@@ -38,10 +42,10 @@ $searchForm.onsubmit = async (e) => {
 const render = async () => {
   try {
     const resMovie = await fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=ko&query=${$searchBar2.value}&page=1&include_adult=false`
+      `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=ko&query=${$searchBar2.value}&page=${i}&include_adult=false`
     );
     const { results } = await resMovie.json();
-    // console.log(results);
+    console.log(results);
     results.forEach((movie) => {
       const $li = document.createElement("li");
       $li.id = movie.id;

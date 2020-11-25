@@ -1,15 +1,14 @@
-if (!localUser.curlog) {
-  window.location.href = "../index.html";
-}
+// if (!localUser.curlog) {
+//   window.location.href = "../index.html";
+// }
 
 const lang = "ko";
 const imgBase = "https://image.tmdb.org/t/p/w500/";
 const $logOut = document.getElementById("logout");
 const $movieLists = document.querySelectorAll(".main section");
 const liWidth = document.querySelector("section").scrollWidth / 5;
-const $genreList = document.querySelector(".genre-list");
-let getBookmarks;
 
+let getBookmarks;
 let onMoving = false;
 let genreList = [];
 
@@ -31,6 +30,7 @@ const makeLi = (movie, ul, num) => {
   ul.appendChild($li);
   $li.style.width = `${liWidth}px`;
 };
+
 // 슬라이드
 const cloneLi = (ul) => {
   const arr = [];
@@ -49,6 +49,7 @@ const cloneLi = (ul) => {
     }
   }
 };
+
 const getMovieList = async (getValue, $ul) => {
   if (getValue === "favorite") {
     const genreRes = await fetch(
@@ -61,7 +62,7 @@ const getMovieList = async (getValue, $ul) => {
   const url =
     getValue === "favorite"
       ? `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&with_genres=${
-          genreList.find((genreLi) => genreLi.name === localUser.genre).id
+          genreList.find(genreLi => genreLi.name === localUser.genre).id
         }&language=${lang}`
       : `https://api.themoviedb.org/3/movie/${getValue}?api_key=${api_key}&language=${lang}&page=1`;
   const res = await fetch(url);
@@ -72,6 +73,7 @@ const getMovieList = async (getValue, $ul) => {
   });
   $ul.style.width = `${(movies.length + 8) * liWidth}px`;
 };
+
 // 슬라이드
 const clickBtn = ($button, $ul) => {
   if (onMoving) return;
@@ -118,7 +120,7 @@ const clickBtn = ($button, $ul) => {
   };
 };
 
-[...$movieLists].forEach(($list) => {
+[...$movieLists].forEach($list => {
   console.log(2);
   getMovieList($list.id, $list.querySelector("ul"));
 });
@@ -148,6 +150,7 @@ const clickBtn = ($button, $ul) => {
   const { bookmarks } = await users.json();
   getBookmarks = bookmarks ? bookmarks : [];
 })();
+
 // 스크롤 이벤트
 $topBtn.onclick = () => {
   window.scroll({
@@ -170,3 +173,23 @@ $logOut.onclick = (e) => {
     })
   );
 };
+
+// 메인에서 장르를 클릭한다.
+// 장르 API에서 id와 내가 클릭한 textContent가 name 일치하면 id를 가져온다.
+
+const $genreList = document.querySelector(".genre-list");
+
+let selectedGenreId;
+$genreList.onclick = async e => {
+  if(!e.target.matches('.genre-list > li > a')) return;
+  console.log(e.target.textContent);
+  const res = await fetch (`https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}&language=ko`)
+  const { genres } = await res.json();
+  genres.forEach(genre => {
+    if(genre.name === e.target.textContent) {
+      let selectedGenreId = genre.id;
+    }
+  });
+}
+
+// const res = await fetch (`https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&language=ko&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`)

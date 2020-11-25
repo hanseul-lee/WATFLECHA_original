@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>장르별 | WATFLECHA</title>
+  <!-- css link -->
+  <link rel="stylesheet" href="../css/genre.css" />
+  <link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+/>
+  <!-- js link -->
+  <!-- <script type="module" defer src="../js/popup.js"></script> -->
+  <script defer src="../js/popup.js"></script>
+  <!-- <script type="module" defer src="../js/genre.js"></script> -->
+  <script defer src="../js/genre.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <h1 class="header__logo">
+        <a href="./main.html">
+          <img src="../image/WATFLICHA-logo.png" alt="WHATFLECHA 로고">
+        </a>
+      </h1>
+      <nav class="header__nav">
+        <ul>
+          <li id="bookmark">
+            <a href="./bookmark.html">
+              <i class="fas fa-heart"></i>
+            </a>
+          </li>
+          <li id="userInfo">
+            <a href="./modiIf.html">
+              <i class="fas fa-user-alt"></i>
+            </a>
+          </li>
+          <li id="search">
+            <a href="./search.html">
+              <i class="fas fa-search search-btn-top"></i>
+            </a>
+          </li>
+          <li class="header__nav__logout">
+            <a href="/" class="logout-btn">로그아웃</a>
+          </li>
+        </ul>
+      </nav>
+      <ul class="genre-list">
+        <li id="action"><a href="#">액션</a></li>
+        <li id="animation"><a href="#">애니메이션</a></li>
+        <li id="romance"><a href="#">로맨스</a></li>
+        <li id="thriller"><a href="#">스릴러</a></li>
+        <li id="sf"><a href="#">SF</a></li>
+      </ul>
+    </header>
+    <section class="main">
+      <h1><span class="main__name"></span> 영화</h1>
+      <div class="result">
+        <ul class="result__movies">
+          <!-- <li class='${id}'>
+            <a href="#">
+              <img src=""></img>
+              title
+            </a>
+          </li> -->
+          </ul>
+        </div>
+      </div>
+      <div class="popup">
+        <button class="close-btn">X</button>
+        <div class="popup__video"></div>
+        <div class="popup__defalt">
+          <h3 class="popup__movieName"></h3>
+          <span class="vote-data">평점 : <span class="vote"></span></span>
+          <i class="fas fa-heart like-btn">
+            <span style="color: #fff;">찜하기</span>
+          </i>
+          <button class="open-btn"><i class="fas fa-chevron-down"></i></button>
+        </div>
+        <div class="popup__open">
+          <div class="popup__open__overviewAll">
+            <h3 class="popup__open__overviewTag">줄거리</h3>
+            <p class="overview"></p>
+          </div>
+          <ul class="popup__open__details">
+            <li class="release-date-data">개봉일 : <span class="release-date"></span></li>
+            <li class="genre-data">장르 : <span class="genre"></span></li>
+            <li class="runtime-data">총 상영시간 : <span class="runtime"></span>분</li>
+            <li class="actors-data">출연 : <br><span class="actors"></span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="overlay"></div>
+      <div class="heartPopup"><img src="../image/heart.png" /></div>
+      <i class="fas fa-angle-double-up top-btn"></i>
+      <!-- <button class="top-btn">맨 위로</button> -->
+    </section>
+</body>
+</html>

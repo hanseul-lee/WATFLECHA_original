@@ -157,9 +157,9 @@ $overlay.onclick = async () => {
   modifyBookMarks();
 };
 
-// localstorage와 db에 반영된 북마크 연동하기
+// localStorage와 db에 반영된 북마크 연동하기
 (async function () {
   const users = await fetch(`/users/${localUser.id}`);
   const { bookmarks } = await users.json();
-  getBookmarks = bookmarks ? bookmarks : [];
+  let getBookmarks = bookmarks ? bookmarks : [];
 })();
