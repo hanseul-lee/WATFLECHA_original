@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>검색 | WATFLECHA</title>
-
+  <title>장르별 | WATFLECHA</title>
   <!-- css link -->
-  <link rel="stylesheet" href="../css/search.css" />
-
-  <!-- js link -->
-  <script defer src="../js/popup.js"></script>
-  <script defer src="../js/search.js"></script>
-
+  <link rel="stylesheet" href="../css/genre.css" />
   <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-    />
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+/>
+  <!-- js link -->
+  <!-- <script type="module" defer src="../js/popup.js"></script> -->
+  <script defer src="../js/popup.js"></script>
+  <!-- <script type="module" defer src="../js/genre.js"></script> -->
+  <script defer src="../js/genre.js"></script>
 </head>
 <body>
   <div class="wrap">
@@ -47,15 +46,16 @@
           </li>
         </ul>
       </nav>
+      <ul class="genre-list">
+        <li id="action"><a href="#">액션</a></li>
+        <li id="animation"><a href="#">애니메이션</a></li>
+        <li id="romance"><a href="#">로맨스</a></li>
+        <li id="thriller"><a href="#">스릴러</a></li>
+        <li id="sf"><a href="#">SF</a></li>
+      </ul>
     </header>
     <section class="main">
-      <h1><span class="main__name"></span>님이 검색한 콘텐츠</h1>
-      <div class="search">
-        <form class="search-form">
-          <input type="text" id="search-bar2" class="search-bar" placeholder="검색할 영화를 입력하세요" >
-          <button class="fas fa-search search-btn" type="submit"><span>찾기</span></button>
-        </form>
-      </div>
+      <h1><span class="main__name"></span> 영화</h1>
       <div class="result">
         <ul class="result__movies">
           <!-- <li class='${id}'>
@@ -91,10 +91,10 @@
           </ul>
         </div>
       </div>
-      <button class="more-btn">더보기</button>
+      <div class="overlay"></div>
+      <div class="heartPopup"><img src="../image/heart.png" /></div>
+      <i class="fas fa-angle-double-up top-btn"></i>
+      <!-- <button class="top-btn">맨 위로</button> -->
     </section>
-    <div class="overlay"></div>
-    <div class="heartPopup"><img src="../image/heart.png" /></div>
-    <i class="fas fa-angle-double-up top-btn"></i>
-  </body>
-  </html>
+</body>
+</html>

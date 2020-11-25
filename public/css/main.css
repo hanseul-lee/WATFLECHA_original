@@ -1,9 +1,11 @@
 @import url(./reset.css);
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+
 html,
 body {
   height: 100%;
 }
+
 body {
   background: black;
   color: #fff;
@@ -11,6 +13,7 @@ body {
   font-size: 16px;
   overflow-x: hidden;
 }
+
 .header {
   position: relative;
   display: flex;
@@ -18,30 +21,39 @@ body {
   justify-content: center;
   padding: 20px 0;
 }
+
 .header__logo img {
   width: 160px;
   vertical-align: middle;
 }
+
 .header::after {
   content: "";
   display: block;
   clear: both;
 }
+
 .header__nav {
   position: absolute;
   right: 0;
   top: 15%;
 }
+
 .header__nav li {
   float: left;
   margin: 10px 22px 0 0;
 }
+
 .header__nav li:first-child {
   transform: translate(0, 2px);
 }
+
 .header__nav li:first-child i {
   color: crimson;
+  font-size: 20px;
+
 }
+
 a.logout-btn {
   font-size: 14px;
   color: #fff;
@@ -56,10 +68,12 @@ a.logout-btn:hover {
   background-color: crimson;
   border: 2px solid crimson;
 }
+
 .genre-list {
   width: 100%;
   margin: 10px 0 0 0;
 }
+
 .genre-list li {
   display: inline-block;
   width: 19.5%;
@@ -68,12 +82,15 @@ a.logout-btn:hover {
   transition: background 0.5s;
   border-radius: 4px;
 }
+
 .genre-list li a {
   display: block;
 }
+
 .genre-list li:hover {
   background: crimson;
 }
+
 .video-container {
   position: relative;
   padding-bottom: 56.25%;
@@ -81,6 +98,7 @@ a.logout-btn:hover {
   z-index: -1;
   opacity: 0.6;
 }
+
 .video-container iframe,
 .video-container object,
 .video-container embed {
@@ -91,24 +109,30 @@ a.logout-btn:hover {
   width: 100vw;
   height: 100%;
 }
+
 .main section {
   margin-bottom: 20px;
 }
+
 /* main */
 .main {
   margin-top: -150px;
   padding: 0 100px;
 }
+
 .main section {
   position: relative;
 }
+
 .main section div {
   padding: 20px 0;
   overflow: hidden;
 }
+
 .main section ul {
   transform: translateX(0);
 }
+
 .main section ul li {
   float: left;
   position: relative;
@@ -118,11 +142,13 @@ a.logout-btn:hover {
   line-height: 50px;
   transition: all 0.3s ease-in-out;
 }
+
 .main section ul li:hover {
   transform: scale(1.2);
   z-index: 1;
   background-color: #000;
 }
+
 .main section ul li span {
   position: absolute;
   font-size: 82px;
@@ -131,6 +157,7 @@ a.logout-btn:hover {
   opacity: 0.9;
   text-shadow: #000 2px 2px 3px;
 }
+
 .main section ul li a {
   display: block;
   text-overflow: ellipsis;
@@ -139,11 +166,13 @@ a.logout-btn:hover {
   color: #fff;
   text-decoration: none;
 }
+
 .main section ul li img {
   display: block;
   width: 100%;
   max-height: 350px;
 }
+
 .main section ul li:hover {
   cursor: pointer;
 }
@@ -156,12 +185,15 @@ a.logout-btn:hover {
   outline: none;
   padding: 50px 5px 90px;
 }
+
 .main section .prev {
   left: -30px;
 }
+
 .main section .next {
   right: -30px;
 }
+
 /* popup-UI */
 
 .overlay {
@@ -336,18 +368,22 @@ h3.popup__open__overviewTag {
   background-color: crimson;
   border: 2px solid crimson;
 }
-.popup > li img {
+
+.popup>li img {
   display: block;
   width: 100%;
   max-height: 350px;
 }
+
 .heartPopup.showing {
   animation: showheart 1s;
 }
+
 @keyframes showheart {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }

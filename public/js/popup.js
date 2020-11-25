@@ -8,6 +8,7 @@ const $openBtn = document.querySelector(".open-btn");
 const $closeBtn = document.querySelector(".close-btn");
 const $likeBtn = document.querySelector(".like-btn");
 const $topBtn = document.querySelector(".top-btn");
+const $moreBtn = document.querySelector(".more-btn");
 const $popupVideo = document.querySelector(".popup__video");
 const $result__movies = document.querySelector(".result__movies");
 const $popup__movieName = document.querySelector(".popup__movieName");
@@ -22,8 +23,9 @@ const $search = document.querySelector(".search-btn-top");
 const $header__logo = document.querySelector(".header__logo");
 const $heartPopup = document.querySelector(".heartPopup");
 
-let selectedId;
 const localUser = JSON.parse(localStorage.getItem("login"));
+let selectedId;
+let getBookmarks;
 
 const popup = (movie, actors) => {
   if (selectedId) $popup__movieName.innerHTML = movie.title;
@@ -157,9 +159,9 @@ $overlay.onclick = async () => {
   modifyBookMarks();
 };
 
-// localstorage와 db에 반영된 북마크 연동하기
+// localStorage와 db에 반영된 북마크 연동하기
 (async function () {
   const users = await fetch(`/users/${localUser.id}`);
   const { bookmarks } = await users.json();
-  getBookmarks = bookmarks ? bookmarks : [];
+  let getBookmarks = bookmarks ? bookmarks : [];
 })();

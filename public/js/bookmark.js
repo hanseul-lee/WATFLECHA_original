@@ -39,7 +39,6 @@ $userName.innerHTML = user.name;
     const {bookmarks} = await users.json();
     bookmarks
     .forEach(async movie_id => {
-      // 이 안에서 get 요청을 할 것
       const url = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${api_key}&language=ko`;
       const res = await fetch(url);
       const results = await res.json();
